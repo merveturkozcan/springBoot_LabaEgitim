@@ -13,8 +13,8 @@ public class ProducttService {
         this.productRepository = productRepository;
     }
 
-    public void save (String name , String category){
-         productRepository.save(name,category );
+    public Productt save (String name , String category){
+         return productRepository.save(name,category );
 
     }
 }

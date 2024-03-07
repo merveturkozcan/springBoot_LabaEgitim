@@ -17,11 +17,11 @@ public class ProducttRepository {
 
 
     @Transactional
-    public void save( String name , String category ){
+    public Productt save( String name , String category ){
         Productt product = new Productt();
         product.setName(name);
         product.setCategory(category);
-        entityManager.merge(product);
+        return entityManager.merge(product);
 
     }
 }
