@@ -1,6 +1,6 @@
-package com.merveturk.springBootLaba.ders4.mapper;
+package com.merveturk.springBootLaba.odev4_jdbc.mapper;
 
-import com.merveturk.springBootLaba.ders4.dto.ProductDTO;
+import com.merveturk.springBootLaba.odev4_jdbc.dto.ProductDTO;
 import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;

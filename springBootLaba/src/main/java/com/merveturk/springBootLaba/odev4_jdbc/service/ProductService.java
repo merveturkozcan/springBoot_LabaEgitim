@@ -1,7 +1,7 @@
-package com.merveturk.springBootLaba.ders4.service;
+package com.merveturk.springBootLaba.odev4_jdbc.service;
 
-import com.merveturk.springBootLaba.ders4.dto.ProductDTO;
-import com.merveturk.springBootLaba.ders4.mapper.ProductMapper;
+import com.merveturk.springBootLaba.odev4_jdbc.dto.ProductDTO;
+import com.merveturk.springBootLaba.odev4_jdbc.mapper.ProductMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import java.util.List;

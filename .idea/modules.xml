@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/springBootLaba/springBootLaba.iml" filepath="$PROJECT_DIR$/springBootLaba/springBootLaba.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/springBoot_LabaEgitim.iml" filepath="$PROJECT_DIR$/.idea/springBoot_LabaEgitim.iml" />
     </modules>
   </component>

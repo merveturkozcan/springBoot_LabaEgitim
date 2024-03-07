@@ -1,7 +1,7 @@
-package com.merveturk.springBootLaba.ders4.controller;
+package com.merveturk.springBootLaba.odev4_jdbc.controller;
 
-import com.merveturk.springBootLaba.ders4.dto.ProductDTO;
-import com.merveturk.springBootLaba.ders4.service.ProductService;
+import com.merveturk.springBootLaba.odev4_jdbc.dto.ProductDTO;
+import com.merveturk.springBootLaba.odev4_jdbc.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 

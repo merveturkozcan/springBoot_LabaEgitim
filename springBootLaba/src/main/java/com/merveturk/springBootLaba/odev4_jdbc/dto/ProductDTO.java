@@ -1,4 +1,4 @@
-package com.merveturk.springBootLaba.ders4.dto;
+package com.merveturk.springBootLaba.odev4_jdbc.dto;
 
 public class ProductDTO {
 
