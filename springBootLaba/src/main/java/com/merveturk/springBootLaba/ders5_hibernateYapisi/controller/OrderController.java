@@ -1,8 +1,7 @@
 package com.merveturk.springBootLaba.ders5_hibernateYapisi.controller;
 
+import com.merveturk.springBootLaba.ders5_hibernateYapisi.entity.Order;
 import com.merveturk.springBootLaba.ders5_hibernateYapisi.service.OrderService;
-import com.merveturk.springBootLaba.odev4_jdbc.dto.ProductDTO;
-import com.merveturk.springBootLaba.odev4_jdbc.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +19,13 @@ public class OrderController {
     @PostMapping("/save")
     public void saveOrder(@RequestParam String orderNumber) {
         orderService.save( orderNumber );
+
+    }
+
+    @GetMapping("/findByOrderNumberOrm")
+    public List<Order> findByOrderNumberOrm (@RequestParam String orderNumber)
+    {
+       return  orderService.findByOrderNumberOrm(orderNumber);
 
     }
 
