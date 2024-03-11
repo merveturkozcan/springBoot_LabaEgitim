@@ -5,9 +5,13 @@ public class ProductDTO {
     private int ID;
     private String NAME;
     private String CATEGORY;
-    private String PHOTOURL;
     private String DESCRIPTION;
+    private String PHOTOURL;
     private Double PRICE;
+
+
+
+
 
     public int getID() {
         return ID;

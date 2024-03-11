@@ -15,11 +15,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @PostMapping("/saveProduct")
-    public void saveProduct() {
-        productService.save();
 
-    }
     @GetMapping("/getProductByCategory")
     public List<ProductDTO> getProductByCategory(@RequestParam String productCategory) {
         return productService.getProductByCategory(productCategory);

@@ -10,15 +10,10 @@ import java.util.List;
 public class ProductService {
 
     private final JdbcTemplate jdbcTemplate;
-
     public ProductService(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void save() {
-
-
-    }
 
 
     public List<ProductDTO> getProductByCategory(String productCategory) {

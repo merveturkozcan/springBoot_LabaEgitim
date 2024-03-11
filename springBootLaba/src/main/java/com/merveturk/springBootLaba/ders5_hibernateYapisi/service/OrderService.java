@@ -19,8 +19,8 @@ public class OrderService {
 
 
 
-    public void save( String orderNumber) {
-        orderRepository.saveOrder(orderNumber);
+    public void saveOrderOrm( String orderNumber) {
+        orderRepository.saveOrderOrm(orderNumber);
     }
 
     public List<Order> findByOrderNumberOrm(String orderNumber) {

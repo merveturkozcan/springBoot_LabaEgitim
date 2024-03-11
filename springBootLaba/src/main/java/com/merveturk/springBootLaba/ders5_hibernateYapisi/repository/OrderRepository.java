@@ -20,8 +20,9 @@ public class OrderRepository {
     private EntityManager entityManager;
 
 
+    // hibernate ile save işlemi
     @Transactional  // db ye kayit atarken bunu kullanmak zorundasin.
-    public void saveOrder(String orderNumber) {
+    public void saveOrderOrm(String orderNumber) {
         Order order = new Order();
         order.setOrderNumber(orderNumber);
         entityManager.merge(order);

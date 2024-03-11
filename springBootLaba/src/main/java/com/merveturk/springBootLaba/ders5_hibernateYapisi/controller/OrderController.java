@@ -16,9 +16,9 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @PostMapping("/save")
-    public void saveOrder(@RequestParam String orderNumber) {
-        orderService.save( orderNumber );
+    @PostMapping("/saveOrderOrm")
+    public void saveOrderOrm(@RequestParam String orderNumber) {
+        orderService.saveOrderOrm( orderNumber );
 
     }
 

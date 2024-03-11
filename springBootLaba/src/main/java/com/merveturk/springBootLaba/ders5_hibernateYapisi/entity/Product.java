@@ -26,10 +26,10 @@ public class Product extends  BaseEntity implements Serializable {
     private String productName;
 
     @Column
-    private Date category;
+    private String category;
 
     @Column
-    private Double photoUrl;
+    private String photoUrl;
 
     @Column
     private String description;
@@ -38,10 +38,25 @@ public class Product extends  BaseEntity implements Serializable {
     private double price;
 
 
-    //bu alan database e yansımaz sadece ilişkisi oldugu yeri belirtir.
 
-  //  @ManyToMany(mappedBy = "products")  // order tablosunun products alanı ile ilişkili , mapped olmuş demektir.
-   //  private Set < Order > orders;   // order ile many to many ilişkisi varmış.
+    // order ile product ilişkisi yöntem 2 : Fiziksel entity oluşturup ilişki belirtmek. OrderProduct entity incele.
+    // orderProduct tablosundaki product alanı ile mapp yapılmış.
+    // Not : Order entity içine de aynısı eklendi bak.
+    /*  @OneToMany(mappedBy = "product")
+    private Set<OrderProduct> orderProducts = new HashSet<>();*/
+    // order ile product ilişkisi yöntem 2
+
+
+
+
+
+    // Order ile Product ilişkisi Yöntem 1 : bu entitiy içine sadece takip amaçlı bu kod yazılır.
+    @ManyToMany(mappedBy = "products")
+    private Set <Order> orders;
+    // Order ile Product ilişkisi Yöntem 1
+
+
+
 
 
 
