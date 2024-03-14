@@ -19,9 +19,13 @@ public class ProductServiceJPA {
 
         ProductJpa productJPA = new ProductJpa();
         productJPA.setCategory(productSaveRequestDtoJpa.getCategory());
-        productJPA.setProductName(productSaveRequestDtoJpa.getName());
+        productJPA.setName(productSaveRequestDtoJpa.getName());
         productRepositoryJPA.save(productJPA);
 
+    }
+
+    public ProductJpa findProductById (Long id){
+        return productRepositoryJPA.findById(id).get();
     }
 
 

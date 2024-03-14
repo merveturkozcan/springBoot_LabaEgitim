@@ -7,19 +7,19 @@ import com.merveturk.springBootLaba.ders6_SpringJPA.entity.OrderProductJpa;
 import com.merveturk.springBootLaba.ders6_SpringJPA.entity.ProductJpa;
 import com.merveturk.springBootLaba.ders6_SpringJPA.repository.OrderProductRepositoryJpa;
 import com.merveturk.springBootLaba.ders6_SpringJPA.repository.OrderRepositoryJPA;
-import com.merveturk.springBootLaba.ders6_SpringJPA.repository.ProductRepositoryJPA;
 import org.springframework.stereotype.Service;
 
 @Service
 public class OrderServiceJPA {
 
+
     private final OrderRepositoryJPA orderRepositoryJPA;
-    private final ProductRepositoryJPA productRepositoryJPA;
+    private final ProductServiceJPA productServiceJPA;
     private final OrderProductRepositoryJpa orderProductRepositoryJpa;
 
-    public OrderServiceJPA(OrderRepositoryJPA orderRepositoryJPA, ProductRepositoryJPA productRepositoryJPA, OrderProductRepositoryJpa orderProductRepositoryJpa) {
+    public OrderServiceJPA(OrderRepositoryJPA orderRepositoryJPA, ProductServiceJPA productServiceJPA, OrderProductRepositoryJpa orderProductRepositoryJpa) {
         this.orderRepositoryJPA = orderRepositoryJPA;
-        this.productRepositoryJPA = productRepositoryJPA;
+        this.productServiceJPA = productServiceJPA;
         this.orderProductRepositoryJpa = orderProductRepositoryJpa;
     }
 
@@ -28,25 +28,18 @@ public class OrderServiceJPA {
 
         long productId = orderSaveRequestDtoJpa.getProductId();
         String orderDescription = orderSaveRequestDtoJpa.getOrderDescription();
+
         OrderJpa order = new OrderJpa();
-        order.setDescription(orderDescription);
+        order.setOrderDescription(orderDescription);
         orderRepositoryJPA.save(order);
 
-        ProductJpa product = productRepositoryJPA.findById(productId).get();
+        ProductJpa product = productServiceJPA.findProductById(productId);
 
-        OrderProductJpa orderProductJpa = new OrderProductJpa();
-        orderProductJpa.setProductJpa(product);
-        orderProductJpa.setOrderJpa(order);
+        OrderProductJpa orderProduct = new OrderProductJpa();
+        orderProduct.setProductJpa(product);
+        orderProduct.setOrderJpa(order);
 
-        orderProductRepositoryJpa.save(orderProductJpa);
-
-
-
-
-
-
-
-
+        orderProductRepositoryJpa.save(orderProduct);
 
     }
 
