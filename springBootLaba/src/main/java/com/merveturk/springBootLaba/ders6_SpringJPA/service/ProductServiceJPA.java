@@ -25,6 +25,7 @@ public class ProductServiceJPA {
     }
 
     public ProductJpa findProductById (Long id){
+
         return productRepositoryJPA.findById(id).get();
     }
 

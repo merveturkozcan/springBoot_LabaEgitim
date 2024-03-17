@@ -13,7 +13,9 @@ import java.util.Date;
 
 public class OrderSaveRequestDtoJpa {
 
-    private long productId;
+    private long productId;  // order kayıt edilirken productıd de olmali elimizde ancak order a ait bir bilgi yok onu disardan alacagiz
     private String orderDescription;
+
+
 
 }

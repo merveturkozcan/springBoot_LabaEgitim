@@ -17,11 +17,14 @@ public class OrderProductControllerJpa {
 
 
     //verilen orderId ile içerisindeki product bilgisini çeken api
-
-
     @GetMapping("/getProductByOrderId")
          public void getProductByOrderId (@RequestParam Long orderId){
-              orderProductServiceJpa.getProductByOrderId(orderId);
+               orderProductServiceJpa.getProductByOrderId(orderId);
+    }
+
+    @GetMapping("/getProductByOrderIdn1Problem")
+    public void getProductByOrderIdn1Problem (@RequestParam Long orderId){
+        orderProductServiceJpa.getProductByOrderIdn1Problem(orderId);
     }
 
 

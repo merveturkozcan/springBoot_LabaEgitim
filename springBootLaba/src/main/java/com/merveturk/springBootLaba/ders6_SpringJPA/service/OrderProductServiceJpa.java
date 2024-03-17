@@ -9,14 +9,15 @@ import com.merveturk.springBootLaba.ders6_SpringJPA.repository.OrderRepositoryJP
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
 public class OrderProductServiceJpa {
 
-    private final OrderProductRepositoryJpa orderProductRepositoryJpa ;
-    private final OrderRepositoryJPA orderRepositoryJPA;
-    // private final ProductRepositoryJPA productRepositoryJPA;
+    private final OrderProductRepositoryJpa orderProductRepositoryJpa;
+    private final OrderRepositoryJPA orderRepositoryJPA ;
+
 
     public OrderProductServiceJpa(OrderProductRepositoryJpa orderProductRepositoryJpa, OrderRepositoryJPA orderRepositoryJPA) {
         this.orderProductRepositoryJpa = orderProductRepositoryJpa;
@@ -24,36 +25,26 @@ public class OrderProductServiceJpa {
     }
 
 
+    // bu metod verilen orderId ile birlikte tum product bilgilerini cekmek icin yazilmistir . Bu bilgiler ortak tabloda mevcuttur.
     public void getProductByOrderId(Long orderId) {
 
-        OrderJpa orderJpa= orderRepositoryJPA.findById(orderId).get();
-
-        List<OrderProductJpa> allByOrder = orderProductRepositoryJpa.findAllByOrder(orderJpa);
-        for (OrderProductJpa orderProduct : allByOrder) {
-            ProductJpa product = orderProduct.getProductJpa();
-            System.out.printf("product");
+        OrderJpa orderJpa = orderRepositoryJPA.findById(orderId).get();
+        // elimdeki orderid ile product bilgisini veren sorguyu orderProductRepositoryJpa icine kendim yazdim.
+        List<OrderProductJpa> allByOrderJpa = orderProductRepositoryJpa.findAllByOrderJpa(orderJpa);
+        for (OrderProductJpa orderProductJpa : allByOrderJpa) {
+            ProductJpa productJpa = orderProductJpa.getProductJpa();// datalar geliyor ancak liste halinde return etmedik sadece get yaptik.
         }
+
+
     }
 
 
+    // fetch type LAZY halde iken , VERILEN ORDERID ILE TUM ORDER VE PRODUCT BILGILERINI TEK SEFERDE SISTEME YUKLER .findOrderProductJpasByOrderJpaId KULLANARK
+    public void getProductByOrderIdn1Problem(Long orderId) {
 
-
-
-
-
-
-
+        List<OrderProductJpa> allByOrderJpa = orderProductRepositoryJpa.findOrderProductJpasByOrderJpaId(orderId );
+        for (OrderProductJpa orderProductJpa : allByOrderJpa) {
+            ProductJpa productJpa = orderProductJpa.getProductJpa();// datalar geliyor ancak liste halinde return etmedik sadece get yaptik.
+        }
+    }
 }
-
-
-
-    // fetch type LAZY halde iken , yüklü datayı tek seferde ön yükleme yapar. Ve sadece bu metod kullanır.
-
-
-  /*  public void getProductByOrderIdn1Problem(Long orderId) {
-        List<OrderProductJpa> allByOrder = orderProductRepositoryJpa.findByProductByOrderId(orderId);
-        for (OrderProductJpa orderProductJpa : allByOrder) {
-            ProductJpa productJpa = orderProductJpa.getProductJpa();
-
-        }*/
-

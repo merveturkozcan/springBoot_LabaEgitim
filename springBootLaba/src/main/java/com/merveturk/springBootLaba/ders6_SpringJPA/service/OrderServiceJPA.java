@@ -24,22 +24,28 @@ public class OrderServiceJPA {
     }
 
 
+    // bu metod  order-product birlikte kayit etmek icin islem yapar. cunku her order icinde bir product var.
     public void save(OrderSaveRequestDtoJpa orderSaveRequestDtoJpa) {
 
         long productId = orderSaveRequestDtoJpa.getProductId();
         String orderDescription = orderSaveRequestDtoJpa.getOrderDescription();
+        // bu iki alan da dto dan geliyor .
 
         OrderJpa order = new OrderJpa();
-        order.setOrderDescription(orderDescription);
-        orderRepositoryJPA.save(order);
+        order.setOrderDescription(orderDescription);  // disardan aldigim description burada order icine verildi
+        orderRepositoryJPA.save(order); // bu alanlari set edip oncelikle order kaydi yapilir sonra orderProduct kaydi yapilir,
 
-        ProductJpa product = productServiceJPA.findProductById(productId);
 
+        // burda da disardan gelen productId ile ilgili product kaydini buluyoruz once.
+        ProductJpa product = productServiceJPA.findProductById(productId); // bu metoda biz yazdik dogru katmanda calismak icin .
+
+        // burada da hem order hem product kaydını orderProduct iliskisini buraya set ederek
         OrderProductJpa orderProduct = new OrderProductJpa();
         orderProduct.setProductJpa(product);
         orderProduct.setOrderJpa(order);
 
-        orderProductRepositoryJpa.save(orderProduct);
+        // kaydet yapıyoruz.
+        orderProductRepositoryJpa.save(orderProduct); // burda da orderService orderRepoya erisimi olmamasi lazim ,
 
     }
 

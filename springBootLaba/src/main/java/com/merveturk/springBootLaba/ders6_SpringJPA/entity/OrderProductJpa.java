@@ -1,6 +1,5 @@
 package com.merveturk.springBootLaba.ders6_SpringJPA.entity;
 
-import com.merveturk.springBootLaba.ders5_hibernateYapisi.entity.BaseEntity;
 import com.merveturk.springBootLaba.ders5_hibernateYapisi.entity.Order;
 import com.merveturk.springBootLaba.ders5_hibernateYapisi.entity.Product;
 import jakarta.persistence.*;
@@ -19,21 +18,25 @@ import java.io.Serializable;
 
 @Table(name="OrderProductJpa")
 @Entity
-public class OrderProductJpa {
+public class OrderProductJpa  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-   // fiziksel tablo oluşturmamdaki amaç : başka alanlar da eklenebilsin.
-    @ManyToOne //(fetch = FetchType.EAGER)
+    private String kargoName;
+
+
+    @ManyToOne (fetch = FetchType.LAZY)//(fetch = FetchType.EAGER , cascade= CascadeType.PERSIST)
     @JoinColumn(name = " product_id")
-    private ProductJpa productJpa;  // product entity den gelen ilişkisel alan.
+    private ProductJpa productJpa;
 
 
-    // //@ManyToOne(cascade = CascadeType.PERSIST)
-    @ManyToOne  //(fetch = FetchType.EAGER)
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = " order_id")
-    private OrderJpa orderJpa; // order entity den gelen ilişkisel alan.
+    private OrderJpa orderJpa;
+
+
 
 }

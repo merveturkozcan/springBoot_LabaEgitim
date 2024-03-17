@@ -19,22 +19,22 @@ import java.util.Set;
 @NoArgsConstructor
 
 
-@Table(name="orderJpa")  // db adı
+@Table(name="OrderJpa")  // db adı
 @Entity
 public class OrderJpa extends  BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-
     @Column
     private String orderNumber;
-
     private Date orderDate;
     private String orderDescription;
     private Double totalAmount;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "orderJpa")
     private Set<OrderProductJpa> orderProductJpa = new HashSet<>();
+
+
 
 
 }

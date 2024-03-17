@@ -17,7 +17,7 @@ import java.util.*;
 @NoArgsConstructor
 
 
-@Table(name="productJpa")  // db adı
+@Table(name="ProductJpa")  // db adı
 @Entity
 public class ProductJpa extends  BaseEntity implements Serializable {
 
@@ -30,7 +30,8 @@ public class ProductJpa extends  BaseEntity implements Serializable {
     private String description;
     private double price;
 
-    @OneToMany(mappedBy = "product")
+
+    @OneToMany(mappedBy = "productJpa")
     private Set<OrderProductJpa> orderProducts = new HashSet<>();
 
 
