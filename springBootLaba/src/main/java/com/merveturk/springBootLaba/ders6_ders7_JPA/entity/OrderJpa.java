@@ -1,10 +1,7 @@
-package com.merveturk.springBootLaba.ders6_SpringJPA.entity;
+package com.merveturk.springBootLaba.ders6_ders7_JPA.entity;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -31,7 +28,7 @@ public class OrderJpa extends  BaseEntity implements Serializable {
     private String orderDescription;
     private Double totalAmount;
 
-    @OneToMany(mappedBy = "orderJpa")
+    @OneToMany(mappedBy = "orderJpa" , cascade = CascadeType.ALL)
     private Set<OrderProductJpa> orderProductJpa = new HashSet<>();
 
 

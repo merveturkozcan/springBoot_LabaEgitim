@@ -1,15 +1,14 @@
-package com.merveturk.springBootLaba.ders6_SpringJPA.service;
+package com.merveturk.springBootLaba.ders6_ders7_JPA.service;
 
 
-import com.merveturk.springBootLaba.ders6_SpringJPA.entity.OrderJpa;
-import com.merveturk.springBootLaba.ders6_SpringJPA.entity.OrderProductJpa;
-import com.merveturk.springBootLaba.ders6_SpringJPA.entity.ProductJpa;
-import com.merveturk.springBootLaba.ders6_SpringJPA.repository.OrderProductRepositoryJpa;
-import com.merveturk.springBootLaba.ders6_SpringJPA.repository.OrderRepositoryJPA;
+import com.merveturk.springBootLaba.ders6_ders7_JPA.entity.OrderJpa;
+import com.merveturk.springBootLaba.ders6_ders7_JPA.entity.OrderProductJpa;
+import com.merveturk.springBootLaba.ders6_ders7_JPA.entity.ProductJpa;
+import com.merveturk.springBootLaba.ders6_ders7_JPA.repository.OrderProductRepositoryJpa;
+import com.merveturk.springBootLaba.ders6_ders7_JPA.repository.OrderRepositoryJPA;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Service

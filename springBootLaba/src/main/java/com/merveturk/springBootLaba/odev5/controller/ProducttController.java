@@ -19,7 +19,6 @@ public class ProducttController {
     private RedirectAttributes redirectAttributes;
 
     public ProducttController(ProducttService productService) {
-
         this.productService = productService;
     }
 

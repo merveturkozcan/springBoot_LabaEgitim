@@ -1,4 +1,4 @@
-package com.merveturk.springBootLaba.ders6_SpringJPA.dto;
+package com.merveturk.springBootLaba.ders6_ders7_JPA.dto;
 
 
 import lombok.Getter;

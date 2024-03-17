@@ -1,9 +1,8 @@
-package com.merveturk.springBootLaba.ders6_SpringJPA.repository;
+package com.merveturk.springBootLaba.ders6_ders7_JPA.repository;
 
-import com.merveturk.springBootLaba.ders6_SpringJPA.entity.OrderJpa;
-import com.merveturk.springBootLaba.ders6_SpringJPA.entity.OrderProductJpa;
+import com.merveturk.springBootLaba.ders6_ders7_JPA.entity.OrderJpa;
+import com.merveturk.springBootLaba.ders6_ders7_JPA.entity.OrderProductJpa;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.jpa.repository.query.*;
 import org.springframework.data.repository.CrudRepository;
 
 

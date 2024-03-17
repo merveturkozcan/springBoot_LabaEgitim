@@ -1,4 +1,4 @@
-package com.merveturk.springBootLaba.ders6_SpringJPA.entity;
+package com.merveturk.springBootLaba.ders6_ders7_JPA.entity;
 
 
 import jakarta.persistence.*;

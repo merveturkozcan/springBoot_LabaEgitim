@@ -1,8 +1,7 @@
-package com.merveturk.springBootLaba.ders6_SpringJPA.controller;
+package com.merveturk.springBootLaba.ders6_ders7_JPA.controller;
 
 
-import com.merveturk.springBootLaba.ders6_SpringJPA.dto.ProductSaveRequestDtoJpa;
-import com.merveturk.springBootLaba.ders6_SpringJPA.service.OrderProductServiceJpa;
+import com.merveturk.springBootLaba.ders6_ders7_JPA.service.OrderProductServiceJpa;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
