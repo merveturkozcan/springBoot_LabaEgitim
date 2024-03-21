@@ -1,6 +1,7 @@
 package com.merveturk.springBootLaba.ders6_ders7_JPA.controller;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.merveturk.springBootLaba.ders6_ders7_JPA.dto.OrderSaveRequestDtoJpa;
 import com.merveturk.springBootLaba.ders6_ders7_JPA.service.OrderServiceJPA;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +18,14 @@ public class OrderControllerJPA {
     }
 
     @PostMapping("/save")
-    public void save(@RequestBody OrderSaveRequestDtoJpa orderSaveRequestDtoJpa){
+    public void save(@RequestBody OrderSaveRequestDtoJpa orderSaveRequestDtoJpa) {
         orderServiceJPA.save(orderSaveRequestDtoJpa);
+
+    }
+
+    @PostMapping("/saveOrdersFromJson")
+    public void saveOrdersFromJson(@RequestBody String json) throws JsonProcessingException {
+        orderServiceJPA.saveOrdersFromJson(json);
 
     }
 
