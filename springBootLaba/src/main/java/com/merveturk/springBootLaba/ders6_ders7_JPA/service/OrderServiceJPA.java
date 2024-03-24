@@ -72,12 +72,12 @@ public class OrderServiceJPA {
 
     public void save(OrderSaveRequestDtoJpa orderSaveRequestDtoJpa) {
 
+        List <Long> productIdList = orderSaveRequestDtoJpa.getProductIdList();
         String orderDescription = orderSaveRequestDtoJpa.getOrderDescription();
+
         OrderJpa order = new OrderJpa();
         order.setOrderDescription(orderDescription);
         orderRepositoryJPA.save(order);
-
-        List <Long> productIdList = orderSaveRequestDtoJpa.getProductIdList();
 
         for (Long l : productIdList) {
 
@@ -86,46 +86,50 @@ public class OrderServiceJPA {
             orderProductJpa.setProductJpa(productById);
             orderProductJpa.setOrderJpa(order);
             orderProductRepositoryJpa.save(orderProductJpa);
+           }
+
         }
 
-        List<ProductJpa> producList = productIdList.stream().map(productId -> {
-            return productServiceJPA.findProductById(productId);
-                }).toList();
-
-
-       // List <ProductJpa> producList = productIdList.stream().map(productIdList)
-
-        producList.stream().forEach(product -> {
-            OrderProductJpa orderProductJpa = new OrderProductJpa();
-            orderProductJpa.setProductJpa(product);
-            orderProductJpa.setOrderJpa(order);
-            orderProductRepositoryJpa.save(orderProductJpa);
-
-        });
-
-    }
 
     public void saveCascade(OrderSaveRequestDtoJpa orderSaveRequestDtoJpa) {
 
-        List<Long> productId = orderSaveRequestDtoJpa.getProductIdList();
+        List<Long> productIdList = orderSaveRequestDtoJpa.getProductIdList();
         String orderDescription = orderSaveRequestDtoJpa.getOrderDescription();
 
         OrderJpa order = new OrderJpa();
         order.setOrderDescription(orderDescription);
 
-        for (Long l : productId) {
-
-            ProductJpa product = productServiceJPA.findProductById(l);
+        //  non-functional  //
+        /*  for (Long productId : productIdList) {
+            ProductJpa product = productServiceJPA.findProductById(productId);
             OrderProductJpa orderProduct = new OrderProductJpa();
             orderProduct.setProductJpa(product);
             orderProduct.setOrderJpa(order);
             orderProductRepositoryJpa.save(orderProduct);
-        }
+        }*/
+
+        //  functional version 1 //
+        /*List<ProductJpa> productList = productIdList.stream().map(productServiceJPA::findProductById).toList();
+        productList.stream().forEach(product-> {
+            OrderProductJpa orderProduct = new OrderProductJpa();
+            orderProduct.setProductJpa(product);
+            orderProduct.setOrderJpa(order);*/
+
+        // functional version 2 //
+        productIdList
+                .stream()
+                .map(productServiceJPA::findProductById)
+                .forEach(product -> {   //map sonucu gelen degeri foreach ile donecektir.
+                    OrderProductJpa orderProduct = new OrderProductJpa();
+                    orderProduct.setProductJpa(product);
+                    orderProduct.setOrderJpa(order);
+        });
     }
 
 
     // order silinmesi icin once order uzerindeki tum product yok olmasi lazim
     public void deleteByOrderId(Long orderId) {
+
         OrderJpa orderJpa = orderRepositoryJPA.findById(orderId).get();
 
         //once product kac tane ise hepsini sil

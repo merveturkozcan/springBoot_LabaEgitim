@@ -1,4 +1,4 @@
-package com.merveturk.springBootLaba.functionalProgramming;
+package functionalProgramming;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;

@@ -22,7 +22,6 @@ public class OrderProductJpa  {
 
     private String kargoName;
 
-
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = " product_id")
     private ProductJpa productJpa;
