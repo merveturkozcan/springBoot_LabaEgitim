@@ -8,8 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.util.Date;
 
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 

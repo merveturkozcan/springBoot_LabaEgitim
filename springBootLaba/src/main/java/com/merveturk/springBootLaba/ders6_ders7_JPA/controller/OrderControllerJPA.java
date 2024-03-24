@@ -38,7 +38,8 @@ public class OrderControllerJPA {
     // manuel olarak iliskisel order silme islemi
     @DeleteMapping("/deleteByOrderId")
     public void delete(@RequestParam Long orderId){
-       orderServiceJPA.deleteByOrderId(orderId);
+
+        orderServiceJPA.deleteByOrderId(orderId);
     }
 
     // cascade olarak iliskisel order silme islemi

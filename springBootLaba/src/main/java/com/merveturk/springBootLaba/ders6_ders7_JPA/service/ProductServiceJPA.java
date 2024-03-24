@@ -47,7 +47,7 @@ public class ProductServiceJPA {
         List<ProductJpa> allByCategory = productRepositoryJPA.findAllByCategory(category);
 
 
-     /*   List<ProductResponseByCategoryDto> list_Dto = allByCategory.stream().map(product -> {
+      /*List<ProductResponseByCategoryDto> list_Dto = allByCategory.stream().map(product -> {
             ProductResponseByCategoryDto productResponseByCategoryDto = new ProductResponseByCategoryDto();
             productResponseByCategoryDto.setName(product.getName());
             productResponseByCategoryDto.setCategory(product.getCategory());
@@ -55,14 +55,14 @@ public class ProductServiceJPA {
         }).toList();*/
 
 
-   /*     List<ProductResponseByCategoryDto> list_ModelMapper = allByCategory.stream().map(product -> {
+       /*List<ProductResponseByCategoryDto> list_ModelMapper = allByCategory.stream().map(product -> {
             ModelMapper modelMapper = new ModelMapper();
             ProductResponseByCategoryDto productResponseByCategoryDto = modelMapper.map(product, ProductResponseByCategoryDto.class);
             return productResponseByCategoryDto;
         }).toList();*/
 
 
-        List<ProductResponseByCategoryDto> list_MapStruct = allByCategory.stream().map(productMapper::productToProductResponseDtoByCategory).toList();
+       List<ProductResponseByCategoryDto> list_MapStruct = allByCategory.stream().map(productMapper::productToProductResponseDtoByCategory).toList();
 
 
         // note : Optional
